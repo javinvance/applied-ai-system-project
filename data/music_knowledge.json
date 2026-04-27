@@ -1,0 +1,250 @@
+{
+  "genres": {
+    "lofi": {
+      "description": "Lo-fi hip hop and chill-hop. Slow, mellow beats with warm analog textures, often layered with ambient noise like rain or coffee-shop murmur. The genre of late-night studying, focused work, and quiet relaxation.",
+      "typical_energy": [0.3, 0.5],
+      "typical_bpm": [60, 90],
+      "typical_acousticness": [0.5, 0.9],
+      "related_genres": ["ambient", "jazz", "hip-hop"],
+      "keywords": ["study", "focus", "chill", "relax", "late night", "cozy", "calm", "coding", "lofi", "lo-fi", "background", "mellow", "homework"],
+      "catalog_songs": ["Midnight Coding", "Library Rain", "Focus Flow"]
+    },
+    "ambient": {
+      "description": "Atmospheric, texture-driven music with minimal rhythmic structure. Designed to blend into environments rather than demand attention. Works for deep focus, meditation, or sleep.",
+      "typical_energy": [0.1, 0.35],
+      "typical_bpm": [50, 75],
+      "typical_acousticness": [0.5, 0.95],
+      "related_genres": ["lofi", "classical", "synthwave"],
+      "keywords": ["meditation", "space", "sleep", "drift", "background", "atmospheric", "quiet", "peaceful", "zen", "mindful"],
+      "catalog_songs": ["Spacewalk Thoughts"]
+    },
+    "pop": {
+      "description": "Polished, melodically driven mainstream music with strong hooks and production. Spans a wide energy range from ballads to dancefloor anthems. Broadly accessible.",
+      "typical_energy": [0.6, 0.95],
+      "typical_bpm": [100, 140],
+      "typical_acousticness": [0.05, 0.35],
+      "related_genres": ["indie pop", "r&b", "edm"],
+      "keywords": ["upbeat", "dance", "mainstream", "catchy", "fun", "party", "happy", "summer", "radio"],
+      "catalog_songs": ["Sunrise City", "Gym Hero"]
+    },
+    "indie pop": {
+      "description": "Melodic, guitar-forward pop with an independent aesthetic. Warmer and more organic than mainstream pop, often introspective with strong hooks.",
+      "typical_energy": [0.6, 0.85],
+      "typical_bpm": [100, 130],
+      "typical_acousticness": [0.2, 0.55],
+      "related_genres": ["pop", "folk", "r&b"],
+      "keywords": ["indie", "chill", "dreamy", "rooftop", "summer afternoon", "feelgood", "sunny"],
+      "catalog_songs": ["Rooftop Lights"]
+    },
+    "rock": {
+      "description": "Guitar-driven music with strong rhythm and dynamics. Ranges from mid-tempo alternative to high-energy hard rock. Common emotional territory: intensity, catharsis, empowerment.",
+      "typical_energy": [0.7, 0.95],
+      "typical_bpm": [120, 160],
+      "typical_acousticness": [0.05, 0.3],
+      "related_genres": ["metal", "blues", "indie pop"],
+      "keywords": ["guitar", "band", "intense", "driving", "headbang", "loud", "riff", "power", "workout", "running"],
+      "catalog_songs": ["Storm Runner"]
+    },
+    "metal": {
+      "description": "Extremely high-energy, aggressive guitar music with complex rhythms and powerful dynamics. The genre for extreme emotional catharsis, maximum intensity, and workout fuel.",
+      "typical_energy": [0.9, 1.0],
+      "typical_bpm": [140, 200],
+      "typical_acousticness": [0.0, 0.1],
+      "related_genres": ["rock", "blues"],
+      "keywords": ["heavy", "aggressive", "intense", "thrash", "hard", "angry", "extreme", "brutal", "headbang", "rage"],
+      "catalog_songs": ["Thrash Theory"]
+    },
+    "jazz": {
+      "description": "Improvised or arrangement-based music with complex harmonic structures. Acoustic instruments dominate — piano, upright bass, horns, brushed drums. Warm, sophisticated, relaxed.",
+      "typical_energy": [0.3, 0.6],
+      "typical_bpm": [70, 110],
+      "typical_acousticness": [0.7, 1.0],
+      "related_genres": ["soul", "blues", "lofi"],
+      "keywords": ["cafe", "coffee", "relaxed", "sophisticated", "acoustic", "piano", "smooth", "evening", "background"],
+      "catalog_songs": ["Coffee Shop Stories"]
+    },
+    "blues": {
+      "description": "Emotionally expressive acoustic and electric guitar music rooted in African-American tradition. Slow, melancholy, and cathartic. Common feelings: sorrow, longing, weariness.",
+      "typical_energy": [0.2, 0.55],
+      "typical_bpm": [60, 95],
+      "typical_acousticness": [0.5, 0.85],
+      "related_genres": ["jazz", "soul", "rock"],
+      "keywords": ["sad", "melancholy", "mournful", "slow", "emotional", "raw", "soulful", "guitar"],
+      "catalog_songs": ["Midnight Gospel"]
+    },
+    "soul": {
+      "description": "Warm, emotionally rich music rooted in gospel and R&B. Features powerful vocals, organic instrumentation, and themes of love, longing, and resilience.",
+      "typical_energy": [0.45, 0.7],
+      "typical_bpm": [80, 110],
+      "typical_acousticness": [0.4, 0.75],
+      "related_genres": ["r&b", "jazz", "blues"],
+      "keywords": ["warm", "soulful", "romantic", "love", "golden", "smooth", "heartfelt"],
+      "catalog_songs": ["Golden Hour"]
+    },
+    "r&b": {
+      "description": "Rhythm and blues: smooth, groove-heavy music blending soul, funk, and hip-hop influences. Often moody, sensual, and introspective. A good pick for late-night or reflective moods.",
+      "typical_energy": [0.5, 0.75],
+      "typical_bpm": [80, 105],
+      "typical_acousticness": [0.1, 0.45],
+      "related_genres": ["soul", "hip-hop", "pop"],
+      "keywords": ["smooth", "groove", "moody", "night", "chill", "vibe", "sensual", "laid back", "neon"],
+      "catalog_songs": ["Neon Shadows"]
+    },
+    "hip-hop": {
+      "description": "Beat-driven music with rhythmic vocal delivery. Ranges from introspective to high-energy. Strong sense of rhythm and pulse — good for focused work or moderate-energy activities.",
+      "typical_energy": [0.6, 0.85],
+      "typical_bpm": [80, 115],
+      "typical_acousticness": [0.0, 0.2],
+      "related_genres": ["r&b", "lofi", "pop"],
+      "keywords": ["beat", "rhythm", "urban", "city", "concrete", "focus", "grind", "hustle"],
+      "catalog_songs": ["Concrete Jungle"]
+    },
+    "edm": {
+      "description": "Electronic Dance Music: synthesizer-driven, maximally energetic, built for dancefloors. Very high energy, heavy bass drops, repetitive rhythmic structures that build tension and release.",
+      "typical_energy": [0.85, 1.0],
+      "typical_bpm": [120, 160],
+      "typical_acousticness": [0.0, 0.08],
+      "related_genres": ["synthwave", "pop"],
+      "keywords": ["dance", "rave", "party", "club", "bass", "drop", "energy", "hype", "festival", "banger"],
+      "catalog_songs": ["Bass Drop"]
+    },
+    "synthwave": {
+      "description": "Retro-futuristic electronic music inspired by 1980s film soundtracks. Pulsing synth arpeggios, neon aesthetics, nocturnal mood. Good for late-night drives or atmospheric work.",
+      "typical_energy": [0.6, 0.85],
+      "typical_bpm": [90, 130],
+      "typical_acousticness": [0.1, 0.35],
+      "related_genres": ["edm", "ambient", "r&b"],
+      "keywords": ["retro", "80s", "night drive", "neon", "cyberpunk", "driving", "moody", "cinematic"],
+      "catalog_songs": ["Night Drive Loop"]
+    },
+    "classical": {
+      "description": "Western orchestral music from the baroque through romantic periods, or contemporary compositions in that tradition. Highly acoustic, emotionally wide-ranging. Associated with focus, introspection, and melancholy.",
+      "typical_energy": [0.1, 0.45],
+      "typical_bpm": [50, 100],
+      "typical_acousticness": [0.85, 1.0],
+      "related_genres": ["ambient", "jazz", "folk"],
+      "keywords": ["orchestra", "piano", "violin", "quiet", "melancholy", "study", "focus", "rain", "introspective"],
+      "catalog_songs": ["Rainy Window"]
+    },
+    "folk": {
+      "description": "Acoustic storytelling music rooted in oral tradition. Acoustic guitar, light percussion, intimate vocals. Warm, peaceful, and nostalgic. Good for winding down.",
+      "typical_energy": [0.2, 0.5],
+      "typical_bpm": [65, 95],
+      "typical_acousticness": [0.8, 1.0],
+      "related_genres": ["country", "indie pop", "classical"],
+      "keywords": ["campfire", "acoustic", "peaceful", "cozy", "nature", "storytelling", "warm", "unplugged", "evening"],
+      "catalog_songs": ["Campfire Lullaby"]
+    },
+    "reggae": {
+      "description": "Jamaican-origin music with a distinctive off-beat rhythm and relaxed groove. Associated with positivity, sunshine, and laid-back enjoyment. Moderate energy, high warmth.",
+      "typical_energy": [0.4, 0.65],
+      "typical_bpm": [75, 100],
+      "typical_acousticness": [0.4, 0.7],
+      "related_genres": ["folk", "soul", "r&b"],
+      "keywords": ["relaxed", "sunday", "sunshine", "positive", "easygoing", "chill", "laid back", "tropical"],
+      "catalog_songs": ["Sunday Morning"]
+    },
+    "country": {
+      "description": "American roots music blending folk, blues, and pop. Often acoustic or semi-acoustic. Themes of home, nostalgia, heartbreak, and rural life.",
+      "typical_energy": [0.35, 0.6],
+      "typical_bpm": [85, 110],
+      "typical_acousticness": [0.55, 0.85],
+      "related_genres": ["folk", "blues", "indie pop"],
+      "keywords": ["nostalgia", "road trip", "home", "heartbreak", "acoustic", "americana", "drive"],
+      "catalog_songs": ["Nostalgia Drive"]
+    }
+  },
+  "moods": {
+    "focused": {
+      "description": "Music that aids concentration without demanding attention. Typically instrumental, low-distraction, moderate pace with minimal abrupt changes.",
+      "typical_energy": [0.3, 0.55],
+      "typical_valence": [0.4, 0.7],
+      "often_paired_genres": ["lofi", "ambient", "classical", "jazz"],
+      "keywords": ["study", "work", "concentrate", "focus", "productive", "flow state", "homework", "coding", "reading", "writing"]
+    },
+    "chill": {
+      "description": "Relaxed but not sleepy. Low stakes, comfortable, easy-listening. Good for unwinding after activity or background listening.",
+      "typical_energy": [0.25, 0.5],
+      "typical_valence": [0.45, 0.75],
+      "often_paired_genres": ["lofi", "jazz", "reggae", "ambient"],
+      "keywords": ["chill", "relaxed", "easy", "laid back", "unwind", "hanging out", "no stress"]
+    },
+    "happy": {
+      "description": "Uplifting, bright music with positive emotional tone. High valence, often danceable, energetic. Good for celebrations, morning routines, or boosting mood.",
+      "typical_energy": [0.6, 0.95],
+      "typical_valence": [0.7, 1.0],
+      "often_paired_genres": ["pop", "indie pop", "reggae", "soul"],
+      "keywords": ["happy", "upbeat", "joyful", "celebrate", "good mood", "excited", "fun", "bright", "cheerful", "positive"]
+    },
+    "energetic": {
+      "description": "High-intensity, driving music that sustains or boosts physical or mental output. Strong beat, fast tempo, high danceability.",
+      "typical_energy": [0.8, 1.0],
+      "typical_valence": [0.5, 0.85],
+      "often_paired_genres": ["edm", "pop", "rock", "hip-hop"],
+      "keywords": ["hype", "energy", "workout", "run", "gym", "pump up", "intense", "fast", "dance", "party"]
+    },
+    "intense": {
+      "description": "Emotionally or dynamically powerful music, not necessarily fast. Can feel cathartic, urgent, or overwhelming. High engagement required.",
+      "typical_energy": [0.75, 1.0],
+      "typical_valence": [0.2, 0.6],
+      "often_paired_genres": ["rock", "metal", "edm"],
+      "keywords": ["intense", "powerful", "heavy", "hard", "driving", "thrilling", "edge"]
+    },
+    "relaxed": {
+      "description": "Gentle, low-pressure music for leisure. Not quite as focused as 'chill' — more passive, comfortable, background-appropriate.",
+      "typical_energy": [0.3, 0.55],
+      "typical_valence": [0.6, 0.85],
+      "often_paired_genres": ["jazz", "reggae", "folk", "soul"],
+      "keywords": ["sunday", "afternoon", "lazy", "slow", "gentle", "easy", "comfortable", "weekend"]
+    },
+    "moody": {
+      "description": "Atmospheric, introspective music with emotional ambiguity. Not quite sad, not quite happy — contemplative, late-night, or cinematic.",
+      "typical_energy": [0.5, 0.75],
+      "typical_valence": [0.3, 0.55],
+      "often_paired_genres": ["r&b", "synthwave", "blues"],
+      "keywords": ["moody", "atmospheric", "introspective", "night", "cinematic", "dark", "brooding", "reflective"]
+    },
+    "romantic": {
+      "description": "Warm, intimate music associated with closeness, love, or longing. High valence, moderate energy, often acoustic or lush production.",
+      "typical_energy": [0.4, 0.65],
+      "typical_valence": [0.65, 0.9],
+      "often_paired_genres": ["soul", "jazz", "r&b", "indie pop"],
+      "keywords": ["romantic", "love", "date night", "intimate", "warm", "golden", "sweet"]
+    },
+    "peaceful": {
+      "description": "Calm, serene music without tension. Very low energy, high acousticness. Good for winding down, meditation, or quiet evenings.",
+      "typical_energy": [0.15, 0.4],
+      "typical_valence": [0.55, 0.8],
+      "often_paired_genres": ["folk", "ambient", "classical", "reggae"],
+      "keywords": ["peaceful", "quiet", "serene", "calm", "sleep", "evening", "wind down", "gentle", "nature"]
+    },
+    "sad": {
+      "description": "Music for processing difficult emotions — grief, heartbreak, loneliness. Low valence, slow tempo, often acoustic. Cathartic rather than escapist.",
+      "typical_energy": [0.2, 0.5],
+      "typical_valence": [0.15, 0.4],
+      "often_paired_genres": ["blues", "classical", "folk", "country"],
+      "keywords": ["sad", "heartbreak", "crying", "miss", "lonely", "broken", "loss", "down", "grief"]
+    },
+    "melancholy": {
+      "description": "A softer, more reflective sadness than acute grief. Bittersweet, often beautiful. Lower energy than 'sad' but more emotionally complex.",
+      "typical_energy": [0.15, 0.4],
+      "typical_valence": [0.2, 0.45],
+      "often_paired_genres": ["classical", "blues", "country", "folk"],
+      "keywords": ["melancholy", "bittersweet", "rainy", "wistful", "nostalgic", "quiet sadness", "reflective"]
+    },
+    "nostalgic": {
+      "description": "Music that evokes memories of the past — childhood, a place, a relationship. Warm and bittersweet, often with acoustic elements.",
+      "typical_energy": [0.35, 0.55],
+      "typical_valence": [0.5, 0.75],
+      "often_paired_genres": ["country", "folk", "indie pop", "soul"],
+      "keywords": ["nostalgia", "memory", "past", "road trip", "hometown", "remember", "throwback"]
+    },
+    "angry": {
+      "description": "Cathartic, aggressive music that channels frustration or rage. Very high energy, low valence. Used for emotional release rather than enjoyment.",
+      "typical_energy": [0.85, 1.0],
+      "typical_valence": [0.1, 0.35],
+      "often_paired_genres": ["metal", "rock", "hip-hop"],
+      "keywords": ["angry", "rage", "frustrated", "aggressive", "vent", "release", "furious", "heavy"]
+    }
+  }
+}
