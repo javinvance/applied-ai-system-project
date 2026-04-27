@@ -6,16 +6,217 @@
 
 ## Demo Walkthrough
 
-**[Watch the full demo on Loom](https://www.loom.com/share/REPLACE_WITH_YOUR_LOOM_ID)**
+### Demo 1 — Batch mode (`python -m src.main`)
 
-The walkthrough covers three end-to-end examples:
-1. Cold start: "studying late at night, stressed, need something calm and focused"
-2. Conversational refinement: "more acoustic please" → updated recommendations
-3. Genre shift: "just finished studying, want to celebrate — upbeat and danceable"
+Runs all 8 test profiles against the scoring engine. No API key required.
 
-![System Architecture](assets/system_diagram.md)
+```
+$ python -m src.main
 
-Screenshots from the CLI are in the [`/assets`](assets/) folder.
+Loading songs from data/songs.csv...
+Loaded songs: 20
+
+==================================================
+  High-Energy Pop
+  Genre: pop  |  Mood: energetic  |  Energy: 0.9
+==================================================
+
+#1  Gym Hero by Max Pulse
+    Score : 3.69 / 5.00
+    Why   : Genre match: pop (+1.0) | Energy similarity: 1.94 (+1.94) | Electronic/produced sound (+0.25) | Upbeat valence: 0.77 (+0.25) | High danceability: 0.88 (+0.25)
+
+#2  Bass Drop by Circuit Pulse
+    Score : 3.65 / 5.00
+    Why   : Mood match: energetic (+1.0) | Energy similarity: 1.90 (+1.90) | Electronic/produced sound (+0.25) | Upbeat valence: 0.72 (+0.25) | High danceability: 0.95 (+0.25)
+
+#3  Sunrise City by Neon Echo
+    Score : 3.59 / 5.00
+    Why   : Genre match: pop (+1.0) | Energy similarity: 1.84 (+1.84) | Electronic/produced sound (+0.25) | Upbeat valence: 0.84 (+0.25) | High danceability: 0.79 (+0.25)
+
+==================================================
+  Chill Lofi
+  Genre: lofi  |  Mood: chill  |  Energy: 0.4
+==================================================
+
+#1  Midnight Coding by LoRoom
+    Score : 3.96 / 5.00
+    Why   : Genre match: lofi (+1.0) | Mood match: chill (+1.0) | Energy similarity: 1.96 (+1.96)
+
+#2  Library Rain by Paper Lanterns
+    Score : 3.90 / 5.00
+    Why   : Genre match: lofi (+1.0) | Mood match: chill (+1.0) | Energy similarity: 1.90 (+1.90)
+
+#3  Focus Flow by LoRoom
+    Score : 3.00 / 5.00
+    Why   : Genre match: lofi (+1.0) | Energy similarity: 2.00 (+2.00)
+
+==================================================
+  Absolute Silence  ← adversarial: energy=0.0, no such song exists
+  Genre: classical  |  Mood: melancholy  |  Energy: 0.0
+==================================================
+
+#1  Rainy Window by Clara Voss
+    Score : 3.81 / 5.00
+    Why   : Genre match: classical (+1.0) | Mood match: melancholy (+1.0) | Energy similarity: 1.56 (+1.56) | Low valence fits mood: 0.32 (+0.25)
+
+#2  Midnight Gospel by Blue Crane
+    Score : 1.49 / 5.00
+    Why   : Energy similarity: 1.24 (+1.24) | Low valence fits mood: 0.28 (+0.25)
+
+==================================================
+  Intense Lofi Coder  ← adversarial: no lofi song has mood=intense
+  Genre: lofi  |  Mood: intense  |  Energy: 0.85
+==================================================
+
+#1  Storm Runner by Voltline
+    Score : 3.13 / 5.00
+    Why   : Mood match: intense (+1.0) | Energy similarity: 1.88 (+1.88) | Electronic/produced sound (+0.25)
+
+#2  Gym Hero by Max Pulse
+    Score : 3.09 / 5.00
+    Why   : Mood match: intense (+1.0) | Energy similarity: 1.84 (+1.84) | Electronic/produced sound (+0.25)
+```
+
+> Note: With the original Module 3 weights (genre = 2.0), the "Intense Lofi Coder" top result was a calm lofi song at 0.42 energy. With the updated weights (genre = 1.0, energy = 2.0), the system correctly surfaces Storm Runner — the intense, high-energy match — at #1.
+
+---
+
+### Demo 2 — Chat mode: cold start + conversational refinement
+
+```
+$ python -m src.main --chat
+
+==================================================
+  MoodMatch — AI Music Recommender
+  Describe your vibe. Type 'quit' to exit.
+==================================================
+
+Examples: 'studying late, need calm focus'
+          'I want something upbeat for a run'
+          'Sunday morning coffee vibes'
+
+You: studying late at night, kind of stressed, need something calm and focused
+
+  Interpreting your vibe...
+  Profile: lofi | focused | energy 0.38 | acoustic: no
+
+  #1  Library Rain by Paper Lanterns
+       Score: 4.60 / 5.0
+       Why:   Calm lofi at 0.35 energy perfectly matches your focused late-night study mood.
+
+  #2  Focus Flow by LoRoom
+       Score: 4.55 / 5.0
+       Why:   Designed for concentration — lofi at 0.40 energy sits right at your target.
+
+  #3  Midnight Coding by LoRoom
+       Score: 4.51 / 5.0
+       Why:   Late-night lofi chill at 0.42 energy with a warm, focused atmosphere.
+
+  #4  Spacewalk Thoughts by Orbit Bloom
+       Score: 2.60 / 5.0
+       Why:   Drifting ambient at very low energy suits your inward, quiet mood.
+
+  #5  Coffee Shop Stories by Slow Stereo
+       Score: 1.91 / 5.0
+       Why:   Relaxed jazz at 0.37 energy — gentle background sound for focused work.
+
+Refine: 'more acoustic', 'more energetic', 'something different'
+
+You: more acoustic please
+
+  Profile: lofi | focused | energy 0.38 | acoustic: yes
+
+  Got it — favoring acoustic, organic-sounding tracks.
+
+  #1  Library Rain by Paper Lanterns
+       Score: 5.10 / 5.0
+       Why:   High acousticness (0.86) lofi perfectly matches your acoustic preference.
+
+  #2  Focus Flow by LoRoom
+       Score: 4.80 / 5.0
+       Why:   Warm acoustic lofi at 0.78 acousticness — unplugged feel for late-night focus.
+
+  #3  Coffee Shop Stories by Slow Stereo
+       Score: 2.66 / 5.0
+       Why:   Acoustic jazz at 0.89 acousticness — intimate coffeehouse background.
+
+Refine: 'more acoustic', 'more energetic', 'something different'
+
+You: quit
+
+Goodbye! Happy listening.
+```
+
+---
+
+### Demo 3 — Agentic mode: observable multi-step reasoning
+
+```
+$ python -m src.main --agent
+
+==================================================
+  MoodMatch — AI Music Recommender
+  Mode: Agentic (multi-step reasoning)
+  Describe your vibe. Type 'quit' to exit.
+==================================================
+
+You: sad but I still want something with energy, conflicted
+
+  [Agent] Starting multi-step vibe analysis...
+  [Tool] get_catalog_overview()
+    → 17 genres, 13 moods available
+  [Tool] search_songs(mood='sad', min_energy=0.7)
+    → 0 match(es): none
+  [Tool] search_songs(mood='sad', min_energy=0.3)
+    → 1 match(es): Midnight Gospel
+  [Tool] search_songs(genre='blues', min_energy=0.5)
+    → 0 match(es): none
+  [Agent] Profile determined after 4 step(s).
+
+  Profile: blues | sad | energy 0.55 | acoustic: yes
+
+  #1  Midnight Gospel by Blue Crane
+       Score: 3.18 / 5.0
+       Why:   The only sad blues track — melancholy valence (0.28) with acoustic warmth.
+
+  #2  Rainy Window by Clara Voss
+       Score: 1.78 / 5.0
+       Why:   Classical melancholy at low energy — reflective and quiet.
+```
+
+> The agent calls `search_songs(mood='sad', min_energy=0.7)` first → 0 results. It then broadens the search and discovers no blues song exceeds energy 0.5, so it compromises to energy 0.55 rather than blindly returning a high-energy profile that would produce no real matches.
+
+---
+
+### Demo 4 — Test suite
+
+```
+$ python -m pytest tests/ -v
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.0.2
+
+collected 16 items
+
+tests/test_chat_session.py::test_apply_updates_changes_energy        PASSED
+tests/test_chat_session.py::test_apply_updates_clamps_energy_high    PASSED
+tests/test_chat_session.py::test_apply_updates_clamps_energy_low     PASSED
+tests/test_chat_session.py::test_apply_updates_likes_acoustic        PASSED
+tests/test_chat_session.py::test_apply_updates_empty_dict_is_noop    PASSED
+tests/test_chat_session.py::test_first_turn_calls_parse_vibe         PASSED
+tests/test_chat_session.py::test_second_turn_calls_refine            PASSED
+tests/test_chat_session.py::test_empty_updates_leaves_profile_unchanged PASSED
+tests/test_chat_session.py::test_energy_increase_applied             PASSED
+tests/test_recommender.py::test_recommend_returns_songs_sorted_by_score PASSED
+tests/test_recommender.py::test_explain_recommendation_returns_non_empty_string PASSED
+tests/test_recommender.py::test_acoustic_bonus_applied_when_likes_acoustic PASSED
+tests/test_recommender.py::test_no_acoustic_bonus_when_likes_acoustic_false PASSED
+tests/test_recommender.py::test_recommend_songs_sorted_descending    PASSED
+tests/test_recommender.py::test_recommend_songs_respects_k           PASSED
+tests/test_recommender.py::test_valence_bonus_for_happy_mood         PASSED
+
+============================== 16 passed in 2.21s =============================
+```
 
 ---
 
